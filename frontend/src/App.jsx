@@ -7,7 +7,7 @@ import './App.scss';
 const App = () => {
   return (
     <div className="App">
-      <PhotoListItem/>
+      <PhotoListItem />
     </div>
   );
 };
