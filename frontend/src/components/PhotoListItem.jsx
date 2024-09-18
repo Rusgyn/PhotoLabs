@@ -4,8 +4,8 @@ import "../styles/PhotoListItem.scss";
 
 const PhotoListItem = (props) => {
   /* Insert React */
-  const {id, imageSource, profile, username, city, country} = props
-
+  const {id, imageSource, profile, username, location: {city, country}} = props.photo;
+  
   return (
     <div>
       <h2>PhotoListItem Component</h2>
@@ -13,7 +13,7 @@ const PhotoListItem = (props) => {
         <img src={imageSource} alt="Photo"></img> <br/>
         <img src={profile} alt="user profile image"></img> <br/>
         <h2> {username} </h2>
-        <span>{city} {country}</span>
+        <span>{props.photo.location.city} {props.photo.location.country}</span>
       </div>
     </div>
   );
