@@ -10,10 +10,12 @@ const PhotoListItem = (props) => {
     <div>
       <h2>PhotoListItem Component</h2>
       <div key={id}>
-        <img src={imageSource} alt="Photo"></img> <br/>
-        <img src={profile} alt="user profile image"></img> <br/>
-        <h2> {username} </h2>
-        <span>{props.photo.location.city} {props.photo.location.country}</span>
+        <img src={imageSource} alt="image"></img> <br/>
+        <img src={profile} alt={`${username}'s profile photo`}></img> <br/>
+        <div>
+          <h2> {username} </h2>
+          <span>{city} {country}</span>
+        </div>
       </div>
     </div>
   );
