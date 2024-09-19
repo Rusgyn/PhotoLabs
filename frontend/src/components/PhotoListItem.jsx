@@ -18,7 +18,7 @@ const PhotoListItem = (props) => {
     <div className="photo-list__item" key={id}>
       <PhotoFavButton /> {/* Favorite icon */}
       {/* Photo Details */}
-      <img className="photo-list__image" src={full} alt={regular}></img>
+      <img className="photo-list__image" src={regular} alt={regular}></img>
 
       {/* User Details */}
       <div className="photo-list__user-details">
