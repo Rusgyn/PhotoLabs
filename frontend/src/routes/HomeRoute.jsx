@@ -5,12 +5,14 @@ import PhotoList from 'components/PhotoList';
 import '../styles/HomeRoute.scss';
 
 const HomeRoute = (props) => {
+
   return (
     <div className="home-route">
-      <TopNavigation topic={props.topic}/>
-      <PhotoList photo={props.photo} />
+      <TopNavigation topicData={props.topicData}/>
+      <PhotoList photoData={props.photoData} />
     </div>
   );
+  
 };
 
 export default HomeRoute;

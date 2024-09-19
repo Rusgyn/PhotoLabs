@@ -10,9 +10,10 @@ const App = () => {
 
   return (
     <div className="App">
-      <HomeRoute photo={photos} topic={topics}/>    
+      <HomeRoute photoData={photos} topicData={topics}/>    
     </div>
   );
+  
 };
 
 export default App;
