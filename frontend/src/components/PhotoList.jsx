@@ -5,13 +5,13 @@ import "../styles/PhotoList.scss";
 
 const PhotoList = (props) => {
 
-  const photoData = props.photoData.map((data) => {
-    return <PhotoListItem key={data.id} photo={data} />
-  })
-
   return (
     <ul className="photo-list">
-      {photoData}
+      {
+        props.photoData.map((data) => {
+          return <PhotoListItem key={data.id} photoValue={data} />
+        })
+      }
     </ul>
   );
 };

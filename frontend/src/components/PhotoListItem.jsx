@@ -2,7 +2,6 @@ import React, { Fragment } from "react";
 
 import "../styles/PhotoListItem.scss"
 import PhotoFavButton from "./PhotoFavButton";
-import PhotoList from "./PhotoList";
 
 const PhotoListItem = (props) => {
  
@@ -12,7 +11,7 @@ const PhotoListItem = (props) => {
     location: {city, country},
     urls: {full, regular},
     user: {username, name, profile}
-  } = props.photo;
+  } = props.photoValue;
     
   return (   
     <div className="photo-list__item" key={id}>
