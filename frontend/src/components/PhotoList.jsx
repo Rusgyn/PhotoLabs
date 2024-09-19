@@ -64,7 +64,6 @@ const PhotoList = () => {
   })
 
   return (
-
     <ul className="photo-list">
       {/* Insert React */}
       {photoData}
