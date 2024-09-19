@@ -28,10 +28,12 @@ const TopicList = () => {
   })
 
   return (
+
     <div className="top-nav-bar__topic-list">
       {/* Insert React */}
       {topicList}
-    </div>
+    </div>  
+
   );
 };
 
