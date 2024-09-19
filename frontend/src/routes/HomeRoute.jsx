@@ -6,13 +6,15 @@ import '../styles/HomeRoute.scss';
 
 const HomeRoute = (props) => {
 
+  const {topics, photos, setFavorites } = props;
+
   return (
     <div className="home-route">
-      <TopNavigation topicData={props.topicData}/>
-      <PhotoList photoData={props.photoData} />
+      <TopNavigation topics={topics}/>
+      <PhotoList photos={photos} setFavorites={setFavorites} />
     </div>
   );
-  
+
 };
 
 export default HomeRoute;

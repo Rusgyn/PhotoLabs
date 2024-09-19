@@ -12,10 +12,13 @@ const PhotoListItem = (props) => {
     urls: {full, regular},
     user: {username, name, profile}
   } = props.photoValue;
+
+  const { setFavorites } = props;
     
   return (   
     <div className="photo-list__item" key={id}>
-      <PhotoFavButton /> {/* Favorite icon */}
+      {/* Favorite icon */}
+      <PhotoFavButton setFavorites={setFavorites} />
       {/* Photo Details */}
       <img className="photo-list__image" src={regular} alt={regular}></img>
 
