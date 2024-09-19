@@ -17,7 +17,7 @@ const sampleDataForPhotoListItem = {
 const photos = new Array(3);
 
 const photoNewArr = [...photos].map((_, index) => {
-  return <PhotoListItem key={index} value={sampleDataForPhotoListItem} />
+  return <PhotoListItem key={index} photo={sampleDataForPhotoListItem} />
 });
 
 // Note: Rendering a single component to build components in isolation

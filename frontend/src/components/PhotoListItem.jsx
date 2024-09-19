@@ -5,7 +5,7 @@ import "../styles/PhotoListItem.scss"
 const PhotoListItem = (props) => {
 
   const {id, imageSource, profile, username, location: {city, country}
-  } = props.value;
+  } = props.photo;
   
   return (     
     <div className="photo-list__item" key={id}>
