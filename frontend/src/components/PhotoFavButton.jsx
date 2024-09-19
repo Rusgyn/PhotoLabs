@@ -7,7 +7,9 @@ function PhotoFavButton() {
 
   const [isFave, setIsFave] = useState(false);
 
-  const faveIconToggle = () => { setIsFave(!isFave) };
+  const faveIconToggle = () => {
+    setIsFave(prevIsFave => !prevIsFave); // ensures that we are working with the most recent state.
+  };
 
   return (
     <div className="photo-list__fav-icon" onClick={faveIconToggle}>
