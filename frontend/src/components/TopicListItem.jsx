@@ -9,8 +9,7 @@ const TopicListItem = (props) => {
   const { id, slug, title } =  props.topicValue;
 
   return (
-    <div className="topic-list__item" key={id}>
-      {/* Insert React */}
+    <div className="topic-list__item">
       <span>
         {title}
       </span>
