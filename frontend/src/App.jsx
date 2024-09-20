@@ -10,6 +10,11 @@ import './App.scss';
 const App = () => {
 
   const [favorites, setFavorites] = useState([]);
+  const [modal, setModal] = useState(false);
+
+  const modalToggle = () => {
+    setModal(prevModal => !prevModal);
+  }
   
   return (
     <div className="App">
@@ -18,8 +23,9 @@ const App = () => {
         topics={topics}
         favorites={favorites}
         setFavorites={setFavorites}
+        modalToggle={modalToggle}
       />
-      <PhotoDetailsModal /> 
+      { modal && <PhotoDetailsModal /> }
     </div>
   );
 
