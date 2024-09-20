@@ -25,7 +25,7 @@ const App = () => {
         setFavorites={setFavorites}
         modalToggle={modalToggle}
       />
-      { modal && <PhotoDetailsModal /> }
+      { modal && <PhotoDetailsModal modal={modal} modalToggle={modalToggle} /> }
     </div>
   );
 
