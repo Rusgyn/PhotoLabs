@@ -7,7 +7,7 @@ import '../styles/HomeRoute.scss';
 const HomeRoute = (props) => {
 
   // Destructure the received props.
-  const { topics, photos, favorites, setFavorites, toggleModal } = props;
+  const { topics, photos, favorites, setFavorites, toggleModal, setSelectedPhoto } = props;
 
   return (
     <div className="home-route">
@@ -17,6 +17,7 @@ const HomeRoute = (props) => {
         favorites={favorites}
         setFavorites={setFavorites}
         toggleModal={toggleModal}
+        setSelectedPhoto={setSelectedPhoto}
       />
     </div>
   );

@@ -6,7 +6,7 @@ import "../styles/PhotoList.scss";
 const PhotoList = (props) => {
 
   // Destructured the received parameters (props)
-  const {photos, favorites, setFavorites, toggleModal } = props;
+  const {photos, favorites, setFavorites, toggleModal, setSelectedPhoto } = props;
 
   return (
     <ul className="photo-list">
@@ -19,6 +19,7 @@ const PhotoList = (props) => {
               favorites={favorites}
               setFavorites={setFavorites}
               toggleModal={toggleModal}
+              setSelectedPhoto={setSelectedPhoto}
             />)
         })
       }

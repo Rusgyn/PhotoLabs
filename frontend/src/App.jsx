@@ -11,11 +11,12 @@ const App = () => {
 
   const [favorites, setFavorites] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedPhoto, setSelectedPhoto] = useState(null);
 
   const toggleModal = () => {
-    setIsModalOpen(prevModal => !prevModal);
+    setIsModalOpen(prevIsModal => !prevIsModal);
   }
-  
+
   return (
     <div className="App">
       <HomeRoute
@@ -24,11 +25,13 @@ const App = () => {
         favorites={favorites}
         setFavorites={setFavorites}
         toggleModal={toggleModal}
+        setSelectedPhoto={setSelectedPhoto}
       />
       { isModalOpen && 
         <PhotoDetailsModal 
           toggleModal={toggleModal}
           photos={photos}
+          selectedPhoto={selectedPhoto}
         />
       }
     </div>
