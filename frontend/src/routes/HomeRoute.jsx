@@ -6,12 +6,13 @@ import '../styles/HomeRoute.scss';
 
 const HomeRoute = (props) => {
 
-  const {topics, photos, setFavorites } = props;
+  // Destructure the received props.
+  const {topics, photos, favorites, setFavorites } = props;
 
   return (
     <div className="home-route">
-      <TopNavigation topics={topics}/>
-      <PhotoList photos={photos} setFavorites={setFavorites} />
+      <TopNavigation topics={topics} favorites={favorites}/>
+      <PhotoList photos={photos} favorites={favorites} setFavorites={setFavorites} />
     </div>
   );
 

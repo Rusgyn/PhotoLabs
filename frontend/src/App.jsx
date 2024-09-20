@@ -9,13 +9,13 @@ import './App.scss';
 const App = () => {
 
   const [favorites, setFavorites] = useState([]);
-  console.log("Favorites ", setFavorites);
-
+  
   return (
     <div className="App">
       <HomeRoute
         photos={photos}
         topics={topics}
+        favorites={favorites}
         setFavorites={setFavorites}
       />    
     </div>
