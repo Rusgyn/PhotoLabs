@@ -6,7 +6,7 @@ import "../styles/PhotoList.scss";
 const PhotoList = (props) => {
 
   // Destructured the received parameters (props)
-  const {photos, setFavorites } = props;
+  const {photos, favorites, setFavorites } = props;
 
   return (
     <ul className="photo-list">
@@ -17,6 +17,7 @@ const PhotoList = (props) => {
               key={data.id}
               identifier={data.id}
               photoValue={data}
+              favorites={favorites}
               setFavorites={setFavorites}
             />)
         })
