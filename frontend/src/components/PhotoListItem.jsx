@@ -13,12 +13,17 @@ const PhotoListItem = (props) => {
     user: {username, name, profile}
   } = props.photoValue;
 
-  const { setFavorites } = props;
+  const { setFavorites, identifier } = props;
     
-  return (   
+  return (    
     <div className="photo-list__item" key={id}>
+
       {/* Favorite icon */}
-      <PhotoFavButton setFavorites={setFavorites} />
+      <PhotoFavButton
+        identifier={identifier}
+        // photoValue={data}
+        setFavorites={setFavorites} />
+
       {/* Photo Details */}
       <img className="photo-list__image" src={regular} alt={regular}></img>
 

@@ -15,6 +15,7 @@ const PhotoList = (props) => {
           return (
             <PhotoListItem
               key={data.id}
+              identifier={data.id}
               photoValue={data}
               setFavorites={setFavorites}
             />)
