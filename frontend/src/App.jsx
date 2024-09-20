@@ -25,7 +25,12 @@ const App = () => {
         setFavorites={setFavorites}
         toggleModal={toggleModal}
       />
-      { isModalOpen && <PhotoDetailsModal toggleModal={toggleModal} /> }
+      { isModalOpen && 
+        <PhotoDetailsModal 
+          toggleModal={toggleModal}
+          photos={photos}
+        />
+      }
     </div>
   );
 
