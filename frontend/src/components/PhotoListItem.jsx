@@ -13,7 +13,7 @@ const PhotoListItem = (props) => {
     user: {username, name, profile}
   } = props.photoValue;
 
-  const { favorites, setFavorites } = props;
+  const { favorites, setFavorites, modalToggle } = props;
 
   const isFavorites = favorites.includes(id);
   console.log(`isFavorites: ${isFavorites} | favorites are: ${favorites}`)
@@ -35,7 +35,7 @@ const PhotoListItem = (props) => {
       />
 
       {/* Photo Details */}
-      <img className="photo-list__image" src={regular} alt={`photo by ${name}`}></img>
+      <img className="photo-list__image" src={regular} alt={`photo by ${name}`} onClick={modalToggle} ></img>
 
       {/* User Details */}
       <div className="photo-list__user-details">
