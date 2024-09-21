@@ -1,30 +1,53 @@
-import React from 'react';
+import React, {useState} from 'react';
 
 import '../styles/PhotoDetailsModal.scss'
 import closeSymbol from '../assets/closeSymbol.svg';
 import PhotoList from 'components/PhotoList';
+import PhotoFavButton from 'components/PhotoFavButton';
 
 const PhotoDetailsModal = (props) => {
-  
-  const { photos, toggleModal, selectedPhoto, favorites, setFavorites } = props;
-  const { id, location, similar_photos, urls, user } = selectedPhoto;
 
-  console.log("PROPS" , Object.values(props.selectedPhoto.similar_photos));
+  const { photos, toggleModal, selectedPhoto, favorites, setFavorites, addFavoritesInModal, setAddFavoritesInModal } = props;
+  const {
+    id,
+    location: {city, country},
+    similar_photos, //Note: {{},{},..}
+    urls: {full, regular},
+    user: {username, name, profile} 
+  } = selectedPhoto;
 
+  // Convert similar_photos object to an array
+  const similarPhotosArray = Object.values(similar_photos);
+
+  // Liking similar photos while in Modal
+   const inFavorites = favorites.includes(id);
+ 
+  const toggleAddToFavorites = () => {
+    setAddFavoritesInModal(prevAddToFavorites => !prevAddToFavorites);
+    (inFavorites  && setFavorites(favorites.filter(photoId => photoId !== id)));
+    (!inFavorites  && setFavorites([...favorites, selectedPhoto.id]))
+  };
+    
   return (
     <div className="photo-details-modal">
 
       {/* Modal button */}
 
-      <button className="photo-details-modal__close-button" onClick={toggleModal} >
+      <button
+        className="photo-details-modal__close-button"
+        onClick={toggleModal} >
         <img src={closeSymbol} alt="close symbol" />
       </button>
 
       {/* Displays the selected photo */}
 
+      <PhotoFavButton
+        onClick={toggleAddToFavorites}
+        addFavoritesInModal={addFavoritesInModal}
+      />
       {/* Selected Photo */}
       <img className='photo-details-modal__image'
-        src={urls.full} alt="Full view of the selected photo">
+        src={full} alt="Full view of the selected photo">
       </img>
 
       {/* Photographer - Profile photo */}
@@ -34,30 +57,31 @@ const PhotoDetailsModal = (props) => {
 
           <img
             className='photo-details-modal__photographer-profile'
-            src={user.profile} alt={`Photographer ${user.name} image`} 
+            src={profile} alt={`Photographer ${name} image`} 
           />
           {/* Photographer - Name and location */}
           <div className='photo-details-modal__photographer-info'>
-            <span> {user.name} </span>
+            <span> {name} </span>
             <div className='photo-details-modal__photographer-location'>
-              <span> {location.city}, {location.country} </span>
+              <span> {city}, {country} </span>
             </div>
           </div>
         </div>
       </div>
-
-   
-      {/* Similar Photos */}  
+       
+      {/* Displays the Similar Photos */}  
       <span>Similar Photos</span> 
       <div className='photo-details-modal__images'>
-      
-        <PhotoList 
-          photos={Object.values(props.selectedPhoto.similar_photos)}
+        <PhotoList
+          photos={similarPhotosArray} // Pass the converted array
+          favorites={props.favorites}
+          setFavorites={props.setFavorites}
+          toggleModal={props.toggleModal}
+          setSelectedPhoto={props.setSelectedPhoto}
         />
       </div>
-
             
-    </div> //Main div
+    </div>
   )
 };
 

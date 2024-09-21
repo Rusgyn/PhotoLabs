@@ -9,13 +9,15 @@ import './App.scss';
 // Note: Rendering a single component to build components in isolation
 const App = () => {
 
-  const [favorites, setFavorites] = useState([]);
+  const [favorites, setFavorites] = useState([]); // Add photo to favorites
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedPhoto, setSelectedPhoto] = useState(null);
+  // Add the photo/s within Modal
+  const [addFavoritesInModal, setAddFavoritesInModal] = useState(favorites);
 
   const toggleModal = () => {
     setIsModalOpen(prevIsModal => !prevIsModal);
-  }
+  };
 
   return (
     <div className="App">
@@ -29,11 +31,13 @@ const App = () => {
       />
       { isModalOpen && 
         <PhotoDetailsModal 
-          toggleModal={toggleModal}
           photos={photos}
           favorites={favorites}
           setFavorites={setFavorites}
           selectedPhoto={selectedPhoto}
+          toggleModal={toggleModal}
+          addFavoritesInModal={addFavoritesInModal}
+          setAddFavoritesInModal={setAddFavoritesInModal}
         />
       }
     </div>

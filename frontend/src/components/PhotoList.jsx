@@ -7,7 +7,7 @@ const PhotoList = (props) => {
 
   // Destructured the received parameters (props)
   const {photos, favorites, setFavorites, toggleModal, setSelectedPhoto } = props;
-  
+ 
   const mappedPhoto = photos.map((photo) => {
       return (
       <PhotoListItem

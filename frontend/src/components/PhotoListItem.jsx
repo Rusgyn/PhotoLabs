@@ -15,10 +15,8 @@ const PhotoListItem = (props) => {
     user: {username, name, profile}
   } = props.photoValue;
 
-  const isFavorites = favorites?.includes(id);
+  const isFavorites = favorites.includes(props.photoValue.id);
 
-  //console.log(`isFavorites: ${isFavorites} | favorites are: ${favorites}`)
-  
   const favoritesToggle = () => {
     // Add photo to the array of favorites
     (isFavorites && setFavorites(favorites.filter(photoId => photoId !== id)));
