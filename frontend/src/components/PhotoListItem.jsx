@@ -6,6 +6,8 @@ import PhotoFavButton from "./PhotoFavButton";
 const PhotoListItem = (props) => {
  
   // Destructured the received parameters (props)
+  const { favorites, setFavorites, toggleModal, setSelectedPhoto } = props;
+
   const {
     id,
     location: {city, country},
@@ -13,20 +15,18 @@ const PhotoListItem = (props) => {
     user: {username, name, profile}
   } = props.photoValue;
 
-  const { favorites, setFavorites, toggleModal, setSelectedPhoto } = props;
+  const isFavorites = favorites?.includes(id);
 
-  const isFavorites = favorites.includes(id);
-  // console.log(`isFavorites: ${isFavorites} | favorites are: ${favorites}`)
-
+  //console.log(`isFavorites: ${isFavorites} | favorites are: ${favorites}`)
+  
   const favoritesToggle = () => {
     // Add photo to the array of favorites
-    (!isFavorites && setFavorites([...favorites, id]));
-    // Exist, remove photo from the array
-    (isFavorites && setFavorites(favorites.filter(favPhotoId => favPhotoId !== id)));
+    (isFavorites && setFavorites(favorites.filter(photoId => photoId !== id)));
+    (!isFavorites && setFavorites([...favorites, id]))
   }
-    
+ 
   return (    
-    <div className="photo-list__item" key={id}>
+    <div className="photo-list__item">
 
       {/* Favorite icon */}
       <PhotoFavButton

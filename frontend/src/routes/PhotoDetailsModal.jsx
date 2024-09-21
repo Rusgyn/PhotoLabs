@@ -6,15 +6,10 @@ import PhotoList from 'components/PhotoList';
 
 const PhotoDetailsModal = (props) => {
   
-  const { toggleModal, selectedPhoto } = props;
+  const { photos, toggleModal, selectedPhoto, favorites, setFavorites } = props;
+  const { id, location, similar_photos, urls, user } = selectedPhoto;
 
-  const {
-    id,
-    location: {city, country},
-    similar_photos, //Note: value is in {}
-    urls: {full, regular},
-    user: {name, profile, username}
-  } = selectedPhoto;
+  console.log("PROPS" , Object.values(props.selectedPhoto.similar_photos));
 
   return (
     <div className="photo-details-modal">
@@ -28,38 +23,41 @@ const PhotoDetailsModal = (props) => {
       {/* Displays the selected photo */}
 
       {/* Selected Photo */}
-      <div className='photo-details-modal__top-bar'>
-        {/* Photo */}
-        <img src={full} alt="Full view of the selected photo" className='photo-details-modal__image' />
+      <img className='photo-details-modal__image'
+        src={urls.full} alt="Full view of the selected photo">
+      </img>
 
-        {/* Photographer */}
-        {/* Photographer - Profile photo */}
+      {/* Photographer - Profile photo */}
+      <div className='photo-details-modal__header'>
+
         <div className='photo-details-modal__photographer-details'>
-          <img 
-            src={profile} alt={`Photographer ${name} image`} className='photo-details-modal__photographer-profile'
+
+          <img
+            className='photo-details-modal__photographer-profile'
+            src={user.profile} alt={`Photographer ${user.name} image`} 
           />
-        </div>
-        {/* Photographer - Name and location */}
-        <div className='photo-details-modal__photographer-info'>
-          <div className='photo-details-modal__photographer-location'>
-            {city}, {country}
+          {/* Photographer - Name and location */}
+          <div className='photo-details-modal__photographer-info'>
+            <span> {user.name} </span>
+            <div className='photo-details-modal__photographer-location'>
+              <span> {location.city}, {location.country} </span>
+            </div>
           </div>
         </div>
-
       </div>
 
-      {/* Similar Photos */}
-
-      <div className='photo-details-modal__header'>
-        <h3>Similar Photos</h3>
-        {/* Photo */}
-    
-
+   
+      {/* Similar Photos */}  
+      <span>Similar Photos</span> 
+      <div className='photo-details-modal__images'>
+      
+        <PhotoList 
+          photos={Object.values(props.selectedPhoto.similar_photos)}
+        />
       </div>
 
-
-      {console.log(selectedPhoto)}
-    </div>
+            
+    </div> //Main div
   )
 };
 
