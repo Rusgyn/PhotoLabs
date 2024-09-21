@@ -15,12 +15,12 @@ const PhotoListItem = (props) => {
     user: {username, name, profile}
   } = props.photoValue;
 
-  const isFavorites = favorites.includes(props.photoValue.id);
+  const inFavorites = favorites.includes(id);
 
   const favoritesToggle = () => {
     // Add photo to the array of favorites
-    (isFavorites && setFavorites(favorites.filter(photoId => photoId !== id)));
-    (!isFavorites && setFavorites([...favorites, id]))
+    (inFavorites && setFavorites(favorites.filter(photoId => photoId !== id)));
+    (!inFavorites && setFavorites([...favorites, id]))
   }
  
   return (    
@@ -29,7 +29,7 @@ const PhotoListItem = (props) => {
       {/* Favorite icon */}
       <PhotoFavButton
         onClick={favoritesToggle}
-        isFavorites={isFavorites}
+        inFavorites={inFavorites}
       />
 
       {/* Photo Details */}

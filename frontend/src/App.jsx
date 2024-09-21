@@ -13,7 +13,7 @@ const App = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedPhoto, setSelectedPhoto] = useState(null);
   // Add the photo/s within Modal
-  const [addFavoritesInModal, setAddFavoritesInModal] = useState(favorites);
+  //const [addFavoritesInModal, setAddFavoritesInModal] = useState(favorites);
 
   const toggleModal = () => {
     setIsModalOpen(prevIsModal => !prevIsModal);
@@ -36,8 +36,6 @@ const App = () => {
           setFavorites={setFavorites}
           selectedPhoto={selectedPhoto}
           toggleModal={toggleModal}
-          addFavoritesInModal={addFavoritesInModal}
-          setAddFavoritesInModal={setAddFavoritesInModal}
         />
       }
     </div>

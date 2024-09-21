@@ -7,7 +7,8 @@ import PhotoFavButton from 'components/PhotoFavButton';
 
 const PhotoDetailsModal = (props) => {
 
-  const { photos, toggleModal, selectedPhoto, favorites, setFavorites, addFavoritesInModal, setAddFavoritesInModal } = props;
+  const { photos, toggleModal, selectedPhoto, favorites, setFavorites  } = props;
+  // addFavoritesInModal, setAddFavoritesInModal
   const {
     id,
     location: {city, country},
@@ -23,10 +24,12 @@ const PhotoDetailsModal = (props) => {
    const inFavorites = favorites.includes(id);
  
   const toggleAddToFavorites = () => {
-    setAddFavoritesInModal(prevAddToFavorites => !prevAddToFavorites);
+    setFavorites(prevSetFavorites => !prevSetFavorites);
     (inFavorites  && setFavorites(favorites.filter(photoId => photoId !== id)));
     (!inFavorites  && setFavorites([...favorites, selectedPhoto.id]))
   };
+
+  console.log("FAVORITES:  ", favorites);
     
   return (
     <div className="photo-details-modal">
@@ -43,7 +46,7 @@ const PhotoDetailsModal = (props) => {
 
       <PhotoFavButton
         onClick={toggleAddToFavorites}
-        addFavoritesInModal={addFavoritesInModal}
+        inFavorites = {inFavorites}
       />
       {/* Selected Photo */}
       <img className='photo-details-modal__image'
