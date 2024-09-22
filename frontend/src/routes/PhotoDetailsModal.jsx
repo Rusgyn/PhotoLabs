@@ -29,7 +29,6 @@ const PhotoDetailsModal = (props) => {
     (!inFavorites  && setFavorites([...favorites, selectedPhoto.id]))
   };
 
-  console.log("FAVORITES:  ", favorites);
     
   return (
     <div className="photo-details-modal">
@@ -43,38 +42,44 @@ const PhotoDetailsModal = (props) => {
       </button>
 
       {/* Displays the selected photo */}
+      {/* STYLING IN PROGRESS.... */}
 
-      <PhotoFavButton
-        onClick={toggleAddToFavorites}
-        inFavorites = {inFavorites}
-      />
-      {/* Selected Photo */}
-      <img className='photo-details-modal__image'
-        src={full} alt="Full view of the selected photo">
-      </img>
+      <div className='photo-details-modal__images'>
 
-      {/* Photographer - Profile photo */}
-      <div className='photo-details-modal__header'>
+        {/* Selected Photo */}
+        <div className='photo-details-modal__top-bar'>
+          <div style={{marginRight:"880px"}} > 
+            <PhotoFavButton
+              onClick={toggleAddToFavorites}
+              inFavorites = {inFavorites}
+            />
+          </div>
+          <img className='photo-details-modal__image'
+            src={full} alt="Full view of the selected photo">
+          </img>
+        </div>
 
-        <div className='photo-details-modal__photographer-details'>
-
-          <img
-            className='photo-details-modal__photographer-profile'
-            src={profile} alt={`Photographer ${name} image`} 
-          />
-          {/* Photographer - Name and location */}
-          <div className='photo-details-modal__photographer-info'>
-            <span> {name} </span>
-            <div className='photo-details-modal__photographer-location'>
-              <span> {city}, {country} </span>
+        {/* Photographer - Profile photo */}
+        <div className='photo-details-modal__header'>
+          <div className='photo-details-modal__photographer-details'>
+            <img
+              className='photo-details-modal__photographer-profile'
+              src={profile} alt={`Photographer ${name} image`} 
+            />
+            {/* Photographer - Name and location */}
+            <div className='photo-details-modal__photographer-info'>
+              <span> {name} </span>
+              <div className='photo-details-modal__photographer-location'>
+                <span> {city}, {country} </span>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-       
-      {/* Displays the Similar Photos */}  
-      <span>Similar Photos</span> 
-      <div className='photo-details-modal__images'>
+      
+        <hr style={{color:"grey"}}/>
+        
+        {/* Displays the Similar Photos */}  
+        <h4>Related Photos </h4>
         <PhotoList
           photos={similarPhotosArray} // Pass the converted array
           favorites={props.favorites}
@@ -83,7 +88,6 @@ const PhotoDetailsModal = (props) => {
           setSelectedPhoto={props.setSelectedPhoto}
         />
       </div>
-            
     </div>
   )
 };

@@ -2,6 +2,7 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center; //space-between
+  // align-content: center;
   list-style-type: none;
   background-color: #F5F5F5;
   margin: 0;
@@ -11,5 +12,6 @@
 .photo-list:after {
   content: "";
   flex: 0 1 30%;
+  align-content: center;
   margin: 5px;
 }

@@ -10,7 +10,7 @@
   overflow-y: scroll;
   border-radius: 12px;
 }
-// USED
+
 .photo-details-modal__close-button {
   background-color: white;
   border: none;
@@ -23,15 +23,15 @@
   margin-left: 16px;
   margin-top: 16px;
 }
-// USED
+
 .photo-details-modal__images {
   margin-left: 36px;
   margin-top: 8px;
 }
-// USED
+
 .photo-details-modal__image {
   max-width: 95%;
-  border-radius: 8px;
+  //border-radius: 8px;
 }
 
 .photo-details-modal__top-bar {
@@ -42,12 +42,12 @@
   margin-top: 8px;
   align-items: center;
 }
-// USED
+
 .photo-details-modal__photographer-details {
   display: flex;
   font-size: 16px;
 }
-// USED
+
 .photo-details-modal__header {
   font-size: 18px;
   font-weight: 500;
@@ -56,7 +56,7 @@
   margin-bottom: 24px;
   width: 90%;
 }
-// USED
+
 .photo-details-modal__photographer-location {
   color: #838383;
 }
