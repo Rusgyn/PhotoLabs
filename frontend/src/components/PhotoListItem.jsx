@@ -34,7 +34,6 @@ const PhotoListItem = (props) => {
 
       {/* Photo Details */}
       <img className="photo-list__image" src={regular} alt={`photo by ${name}`} onClick={() => { openModalWithPhoto(props.photoValue) }} ></img>
-      {/* onClick={() => { toggleModal(); setSelectedPhoto(props.photoValue); }} ></img> */}
       
       {/* User Details */}
       <div className="photo-list__user-details">

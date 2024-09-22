@@ -7,7 +7,7 @@ import '../styles/HomeRoute.scss';
 const HomeRoute = (props) => {
 
   // Destructure the received props.
-  const { topics, selectedPhoto, photos, favorites, setFavorites, openModalWithPhoto, toggleModal, setSelectedPhoto, toggleAddToFavorites } = props;
+  const { topics, selectedPhoto, photos, favorites, setFavorites, openModalWithPhoto, toggleAddToFavorites } = props;
 
   return (
     <div className="home-route">
