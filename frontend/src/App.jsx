@@ -4,20 +4,24 @@ import HomeRoute from 'routes/HomeRoute';
 import photos from "./mocks/photos"
 import topics from "./mocks/topics"
 import PhotoDetailsModal from 'routes/PhotoDetailsModal';
+import useApplicationData from 'hooks/useApplicationData';
 import './App.scss';
 
 // Note: Rendering a single component to build components in isolation
 const App = () => {
 
-  const [favorites, setFavorites] = useState([]); // Add photo to favorites
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [selectedPhoto, setSelectedPhoto] = useState(null);
-  // Add the photo/s within Modal
-  //const [addFavoritesInModal, setAddFavoritesInModal] = useState(favorites);
-
-  const toggleModal = () => {
-    setIsModalOpen(prevIsModal => !prevIsModal);
-  };
+  const {
+    favorites,
+    setFavorites,
+    inFavorites,
+    setInFavorites,
+    isModalOpen,
+    setIsModalOpen,
+    selectedPhoto,
+    setSelectedPhoto,
+    toggleModal,
+    toggleAddToFavorites
+  } = useApplicationData;
 
   return (
     <div className="App">
@@ -28,6 +32,7 @@ const App = () => {
         setFavorites={setFavorites}
         toggleModal={toggleModal}
         setSelectedPhoto={setSelectedPhoto}
+        toggleAddToFavorites={toggleAddToFavorites}
       />
       { isModalOpen && 
         <PhotoDetailsModal 
@@ -36,6 +41,7 @@ const App = () => {
           setFavorites={setFavorites}
           selectedPhoto={selectedPhoto}
           toggleModal={toggleModal}
+          toggleAddToFavorites={toggleAddToFavorites}
         />
       }
     </div>
