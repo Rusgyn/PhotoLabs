@@ -28,9 +28,7 @@ function reducer(state, action) {
         isModalOpen: true
       }
     default:
-      throw new Error(
-        `Tried to reduce with unsupported action type: ${action.type}`
-      );
+      return state;
   }
 }
 
