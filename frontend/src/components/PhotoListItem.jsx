@@ -3,10 +3,11 @@ import React, { Fragment } from "react";
 import "../styles/PhotoListItem.scss"
 import PhotoFavButton from "./PhotoFavButton";
 
+
 const PhotoListItem = (props) => {
  
   // Destructured the received parameters (props)
-  const { favorites, setFavorites, toggleModal, setSelectedPhoto } = props;
+  const { favorites = [], setFavorites, toggleModal, setSelectedPhoto, toggleAddToFavorites } = props;
 
   const {
     id,
@@ -17,18 +18,17 @@ const PhotoListItem = (props) => {
 
   const inFavorites = favorites.includes(id);
 
-  const favoritesToggle = () => {
-    // Add photo to the array of favorites
-    (inFavorites && setFavorites(favorites.filter(photoId => photoId !== id)));
-    (!inFavorites && setFavorites([...favorites, id]))
-  }
+  //This function will handle the favorite toggle
+  const handleAddToFavoriteToggle = () => {
+    toggleAddToFavorites(id, inFavorites);
+  };
  
   return (    
     <div className="photo-list__item">
 
       {/* Favorite icon */}
       <PhotoFavButton
-        onClick={favoritesToggle}
+        onClick={handleAddToFavoriteToggle}
         inFavorites={inFavorites}
       />
 

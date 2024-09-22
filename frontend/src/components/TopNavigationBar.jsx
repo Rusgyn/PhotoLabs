@@ -5,7 +5,7 @@ import FavBadge from './FavBadge';
 import TopicList from './TopicList';
 
 const TopNavigation = (props) => {
-
+  
   const { topics, favorites } = props;
 
   return (

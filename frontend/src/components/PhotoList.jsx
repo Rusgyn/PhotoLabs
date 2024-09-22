@@ -6,7 +6,7 @@ import "../styles/PhotoList.scss";
 const PhotoList = (props) => {
 
   // Destructured the received parameters (props)
-  const {photos, favorites, setFavorites, toggleModal, setSelectedPhoto } = props;
+  const {photos, favorites, setFavorites, toggleModal, setSelectedPhoto, toggleAddToFavorites } = props;
  
   const mappedPhoto = photos.map((photo) => {
       return (
@@ -17,6 +17,7 @@ const PhotoList = (props) => {
         setFavorites={setFavorites}
         toggleModal={toggleModal}
         setSelectedPhoto={setSelectedPhoto}
+        toggleAddToFavorites={toggleAddToFavorites}
       />)
   })
 

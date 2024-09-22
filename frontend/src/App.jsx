@@ -1,8 +1,8 @@
 import { React, useState } from 'react';
 
 import HomeRoute from 'routes/HomeRoute';
-import photos from "./mocks/photos"
-import topics from "./mocks/topics"
+import photos from 'mocks/photos';
+import topics from 'mocks/topics';
 import PhotoDetailsModal from 'routes/PhotoDetailsModal';
 import useApplicationData from 'hooks/useApplicationData';
 import './App.scss';
@@ -21,7 +21,7 @@ const App = () => {
     setSelectedPhoto,
     toggleModal,
     toggleAddToFavorites
-  } = useApplicationData;
+  } = useApplicationData();
 
   return (
     <div className="App">

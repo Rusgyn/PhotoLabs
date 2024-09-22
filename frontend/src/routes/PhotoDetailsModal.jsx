@@ -7,8 +7,7 @@ import PhotoFavButton from 'components/PhotoFavButton';
 
 const PhotoDetailsModal = (props) => {
 
-  const { photos, toggleModal, selectedPhoto, favorites, setFavorites  } = props;
-  // addFavoritesInModal, setAddFavoritesInModal
+  const { photos, toggleModal, selectedPhoto, favorites, setFavorites, toggleAddToFavorites } = props;
   const {
     id,
     location: {city, country},
@@ -19,22 +18,17 @@ const PhotoDetailsModal = (props) => {
 
   // Convert similar_photos object to an array
   const similarPhotosArray = Object.values(similar_photos);
+  const inFavorites = favorites.includes(id);
 
-  // Liking similar photos while in Modal
-   const inFavorites = favorites.includes(id);
- 
-  const toggleAddToFavorites = () => {
-    setFavorites(prevSetFavorites => !prevSetFavorites);
-    (inFavorites  && setFavorites(favorites.filter(photoId => photoId !== id)));
-    (!inFavorites  && setFavorites([...favorites, selectedPhoto.id]))
+  //This function will handle the favorite toggle
+  const handleAddToFavoriteToggle = () => {
+    toggleAddToFavorites(id, inFavorites); // Ensure this is called as a function
   };
-
-    
+ 
   return (
     <div className="photo-details-modal">
 
       {/* Modal button */}
-
       <button
         className="photo-details-modal__close-button"
         onClick={toggleModal} >
@@ -42,15 +36,12 @@ const PhotoDetailsModal = (props) => {
       </button>
 
       {/* Displays the selected photo */}
-      {/* STYLING IN PROGRESS.... */}
-
       <div className='photo-details-modal__images'>
-
         {/* Selected Photo */}
         <div className='photo-details-modal__top-bar'>
           <div style={{marginRight:"880px"}} > 
             <PhotoFavButton
-              onClick={toggleAddToFavorites}
+              onClick={handleAddToFavoriteToggle}
               inFavorites = {inFavorites}
             />
           </div>
@@ -81,11 +72,13 @@ const PhotoDetailsModal = (props) => {
         {/* Displays the Similar Photos */}  
         <h4>Related Photos </h4>
         <PhotoList
-          photos={similarPhotosArray} // Pass the converted array
+          photos={similarPhotosArray}
           favorites={props.favorites}
           setFavorites={props.setFavorites}
           toggleModal={props.toggleModal}
           setSelectedPhoto={props.setSelectedPhoto}
+          toggleAddToFavorites={toggleAddToFavorites}
+          handleAddToFavoriteToggle={handleAddToFavoriteToggle}
         />
       </div>
     </div>

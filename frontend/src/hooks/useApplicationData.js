@@ -16,21 +16,14 @@ const useApplicationData = () => {
   const toggleModal = () => {
     setIsModalOpen(prevIsModal => !prevIsModal);
   };
-
-  // const favoritesToggle = () => {
-  //   // Add photo to the array of favorites
-  //   setFavorites(prevFavorites => !prevFavorites);
-  //   ((favorites.includes(id)) && setFavorites(favorites.filter(photoId => photoId !== id)));
-  //   ((!favorites.includes(id)) && setFavorites([...favorites, id]))
-  // }
   
   const toggleAddToFavorites = (id, inFavorites) => {
-    setFavorites(prevFavorites => !prevFavorites);
-    (inFavorites && setFavorites(favorites.filter(photoId => photoId !== id)));
-    (!inFavorites && setFavorites([...favorites, selectedPhoto.id]))
+    setFavorites((prevFavorites) =>
+      inFavorites ? prevFavorites.filter((photoId) => photoId !== id) : [...prevFavorites, id]
+    );
   };
 
-  return (
+  return ({
     favorites,
     setFavorites,
     inFavorites,
@@ -41,7 +34,8 @@ const useApplicationData = () => {
     setSelectedPhoto,
     toggleModal,
     toggleAddToFavorites
-  );
+  });
+
 }
 
 export default useApplicationData;
