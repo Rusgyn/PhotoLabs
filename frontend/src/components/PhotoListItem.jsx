@@ -7,7 +7,7 @@ import PhotoFavButton from "./PhotoFavButton";
 const PhotoListItem = (props) => {
  
   // Destructured the received parameters (props)
-  const { favorites = [], setFavorites, toggleModal, setSelectedPhoto, toggleAddToFavorites } = props;
+  const { favorites = [], openModalWithPhoto, setFavorites, toggleModal, selectedPhoto, toggleAddToFavorites } = props;
 
   const {
     id,
@@ -33,8 +33,9 @@ const PhotoListItem = (props) => {
       />
 
       {/* Photo Details */}
-      <img className="photo-list__image" src={regular} alt={`photo by ${name}`} onClick={() => { toggleModal(); setSelectedPhoto(props.photoValue); }} ></img>
-
+      <img className="photo-list__image" src={regular} alt={`photo by ${name}`} onClick={() => { openModalWithPhoto(props.photoValue) }} ></img>
+      {/* onClick={() => { toggleModal(); setSelectedPhoto(props.photoValue); }} ></img> */}
+      
       {/* User Details */}
       <div className="photo-list__user-details">
         {/* User - profile photo */}

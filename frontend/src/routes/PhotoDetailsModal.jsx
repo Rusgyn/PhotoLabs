@@ -7,7 +7,13 @@ import PhotoFavButton from 'components/PhotoFavButton';
 
 const PhotoDetailsModal = (props) => {
 
-  const { photos, toggleModal, selectedPhoto, favorites, setFavorites, toggleAddToFavorites } = props;
+  const { photos, openModalWithPhoto, selectedPhoto, favorites, setFavorites, closeModal, toggleAddToFavorites } = props;
+
+  // Ensure selectedPhoto and location exist before rendering
+  if (!selectedPhoto || !selectedPhoto.location) {
+    return null;
+  }
+
   const {
     id,
     location: {city, country},
@@ -24,14 +30,15 @@ const PhotoDetailsModal = (props) => {
   const handleAddToFavoriteToggle = () => {
     toggleAddToFavorites(id, inFavorites); // Ensure this is called as a function
   };
- 
+
   return (
     <div className="photo-details-modal">
 
       {/* Modal button */}
       <button
         className="photo-details-modal__close-button"
-        onClick={toggleModal} >
+        onClick={closeModal} 
+         >
         <img src={closeSymbol} alt="close symbol" />
       </button>
 
@@ -39,12 +46,14 @@ const PhotoDetailsModal = (props) => {
       <div className='photo-details-modal__images'>
         {/* Selected Photo */}
         <div className='photo-details-modal__top-bar'>
-          <div style={{marginRight:"880px"}} > 
+
+          <div style={{marginRight: "620px"}} > 
             <PhotoFavButton
               onClick={handleAddToFavoriteToggle}
               inFavorites = {inFavorites}
             />
           </div>
+
           <img className='photo-details-modal__image'
             src={full} alt="Full view of the selected photo">
           </img>
@@ -75,8 +84,8 @@ const PhotoDetailsModal = (props) => {
           photos={similarPhotosArray}
           favorites={props.favorites}
           setFavorites={props.setFavorites}
-          toggleModal={props.toggleModal}
-          setSelectedPhoto={props.setSelectedPhoto}
+          openModalWithPhoto={openModalWithPhoto}
+          selectedPhoto={props.selectedPhoto}
           toggleAddToFavorites={toggleAddToFavorites}
           handleAddToFavoriteToggle={handleAddToFavoriteToggle}
         />

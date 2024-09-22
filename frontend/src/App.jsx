@@ -1,4 +1,4 @@
-import { React, useState } from 'react';
+import { React, useEffect } from 'react';
 
 import HomeRoute from 'routes/HomeRoute';
 import photos from 'mocks/photos';
@@ -19,19 +19,32 @@ const App = () => {
     setIsModalOpen,
     selectedPhoto,
     setSelectedPhoto,
+    openModalWithPhoto, //
     toggleModal,
-    toggleAddToFavorites
+    closeModal,
+    toggleAddToFavorites,
+    ...state
   } = useApplicationData();
 
+  useEffect(() => {
+    console.log('selectedPhoto state updated:', selectedPhoto);
+  }, [selectedPhoto]);
+  
+  useEffect(() => {
+    console.log('isModalOpen state updated:', isModalOpen);
+  }, [isModalOpen]);
+
   return (
+    
     <div className="App">
       <HomeRoute
         photos={photos}
         topics={topics}
         favorites={favorites}
         setFavorites={setFavorites}
+        openModalWithPhoto={openModalWithPhoto}
         toggleModal={toggleModal}
-        setSelectedPhoto={setSelectedPhoto}
+        selectedPhoto={selectedPhoto}
         toggleAddToFavorites={toggleAddToFavorites}
       />
       { isModalOpen && 
@@ -40,10 +53,14 @@ const App = () => {
           favorites={favorites}
           setFavorites={setFavorites}
           selectedPhoto={selectedPhoto}
+          openModalWithPhoto={openModalWithPhoto}
           toggleModal={toggleModal}
+          closeModal={closeModal}
           toggleAddToFavorites={toggleAddToFavorites}
         />
       }
+
+<button onClick={() => toggleModal()}>Open Modal</button>
     </div>
   );
 
