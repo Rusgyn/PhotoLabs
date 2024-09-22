@@ -1,8 +1,9 @@
 .photo-list {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: center; //space-between
   list-style-type: none;
+  background-color: #F5F5F5;
   margin: 0;
   padding: 0;
 }
