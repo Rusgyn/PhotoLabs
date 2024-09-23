@@ -1,22 +1,27 @@
 import React, { Fragment } from "react";
 
-import "../styles/PhotoListItem.scss"
 import PhotoFavButton from "./PhotoFavButton";
-
+import "../styles/PhotoListItem.scss";
 
 const PhotoListItem = (props) => {
  
   // Destructured the received parameters (props)
-  const { favorites = [], openModalWithPhoto, setFavorites, toggleModal, selectedPhoto, toggleAddToFavorites } = props;
-
+  const { favorites = [], openModalWithPhoto, setFavorites, toggleModal, selectedPhoto, toggleAddToFavorites, inModal } = props;
   const {
     id,
     location: {city, country},
     urls: {full, regular},
     user: {username, name, profile}
   } = props.photoValue;
-
   const inFavorites = favorites.includes(id);
+  
+  const handleInModal = () => {
+    if (!inModal) {
+      return openModalWithPhoto(props.photoValue);
+    } else {
+      return;//(In Modal). To prevent opening modal when clicking similar photo.
+    }
+  }
 
   //This function will handle the favorite toggle
   const handleAddToFavoriteToggle = () => {
@@ -33,7 +38,11 @@ const PhotoListItem = (props) => {
       />
 
       {/* Photo Details */}
-      <img className="photo-list__image" src={regular} alt={`photo by ${name}`} onClick={() => { openModalWithPhoto(props.photoValue) }} ></img>
+      <img 
+        className="photo-list__image"
+        src={regular} alt={`photo by ${name}`}
+        onClick={handleInModal}
+      />
       
       {/* User Details */}
       <div className="photo-list__user-details">

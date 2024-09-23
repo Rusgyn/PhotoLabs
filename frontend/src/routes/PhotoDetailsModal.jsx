@@ -47,7 +47,7 @@ const PhotoDetailsModal = (props) => {
         {/* Selected Photo */}
         <div className='photo-details-modal__top-bar'>
 
-          <div style={{marginRight: "620px"}} > 
+          <div style={{marginRight: "550px"}} > 
             <PhotoFavButton
               onClick={handleAddToFavoriteToggle}
               inFavorites = {inFavorites}
@@ -88,6 +88,7 @@ const PhotoDetailsModal = (props) => {
           selectedPhoto={props.selectedPhoto}
           toggleAddToFavorites={toggleAddToFavorites}
           handleAddToFavoriteToggle={handleAddToFavoriteToggle}
+          inModal={true}
         />
       </div>
     </div>

@@ -27,6 +27,7 @@ function reducer(state, action) {
       return {
         ...state,
         selectedPhoto: action.payload.photo,
+        isModal: true
       };
     case ACTIONS.DISPLAY_PHOTO_DETAILS:
       return {
@@ -47,6 +48,7 @@ export default function useApplicationData() {
 
   const initialState = {
     favorites: [],
+    inModal: false,
     isModalOpen: false,
     selectedPhoto: {
       id: null,
@@ -68,6 +70,10 @@ export default function useApplicationData() {
     dispatch({ type: ACTIONS.DISPLAY_PHOTO_DETAILS });
   };
 
+  const toggleModal = () => {
+    dispatch({ type: ACTIONS.DISPLAY_PHOTO_DETAILS });
+  }
+
   const closeModal = () => {
     dispatch({ type: ACTIONS.CLOSE_PHOTO_DETAILS }); 
   };
@@ -82,6 +88,7 @@ export default function useApplicationData() {
     openModalWithPhoto,
     selectPhoto,
     openModalWithPhoto,
+    toggleModal,
     closeModal,
     toggleAddToFavorites
   };
