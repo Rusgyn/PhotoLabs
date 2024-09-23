@@ -85,8 +85,8 @@ export default function useApplicationData() {
     // make the get request to the backend. Load photos data.
     axios.get('/api/photos/')
       .then((response) => {
-        console.log("GET PHOTO, useApplicationData:", response);
-        dispatch({type: ACTIONS.SET_PHOTO_DATA, payload: response});
+        console.log("GET PHOTO, useApplicationData:", response.data);
+        dispatch({type: ACTIONS.SET_PHOTO_DATA, payload: response.data});
       })
       .catch(error => {
         console.error('Error fetching photo data:', error); // Handle errors
@@ -98,8 +98,8 @@ export default function useApplicationData() {
     // make the get request to the backend. Load topics data.
     axios.get('/api/topics/')
       .then((response) => {
-        console.log("GET TOPICS, useApplicationData:", response);
-        dispatch({type: ACTIONS.SET_TOPIC_DATA, payload: response});
+        console.log("GET TOPICS, useApplicationData:", response.data);
+        dispatch({type: ACTIONS.SET_TOPIC_DATA, payload: response.data});
       })
       .catch(error => {
         console.error('Error fetching topic data:', error); // Handle errors
