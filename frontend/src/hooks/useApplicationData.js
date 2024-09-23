@@ -1,11 +1,13 @@
-import React, { useReducer } from "react";
+import photos from "mocks/photos";
+import React, { useEffect, useReducer } from "react";
 
 export const ACTIONS = {
   FAV_PHOTO_ADDED: 'FAV_PHOTO_ADDED',
   FAV_PHOTO_REMOVED: 'FAV_PHOTO_REMOVED',
-  SELECT_PHOTO: 'SELECT_PHOTO',
   SET_PHOTO_DATA: 'SET_PHOTO_DATA',
   SET_TOPIC_DATA: 'SET_TOPIC_DATA',
+  GET_PHOTOS_BY_TOPICS: 'GET_PHOTOS_BY_TOPICS',
+  SELECT_PHOTO: 'SELECT_PHOTO',
   DISPLAY_PHOTO_DETAILS: 'DISPLAY_PHOTO_DETAILS',
   CLOSE_PHOTO_DETAILS: 'CLOSE_PHOTO_DETAILS'
 }
@@ -23,6 +25,21 @@ function reducer(state, action) {
         ...state,
         favorites: state.favorites.filter((photoId) => photoId !== action.payload.id),
       };
+    case ACTIONS.SET_PHOTO_DATA:
+      return {
+        ...state,
+        photos: action.payload
+      };
+    case ACTIONS.SET_TOPIC_DATA:
+      return {
+        ...state,
+        topics: action.payload
+      };
+    case ACTIONS.GET_PHOTOS_BY_TOPICS:
+      return {
+        ...state,
+        photos: action.payload
+      }
     case ACTIONS.SELECT_PHOTO:
       return {
         ...state,
@@ -56,15 +73,53 @@ export default function useApplicationData() {
       similar_photos: {},
       urls: { full: '', regular: '' },
       user: { username: '', name: '', profile: '' }
-    }
+    },
+    photos: [],
+    topics: [],
   };
 
   const [state, dispatch] = useReducer(reducer, initialState);
+  
+  //useEffect and axios to get photos
+  useEffect(() => {
+    // make the get request to the backend. Load photos data.
+    axios.get('/api/photos/')
+      .then((response) => {
+        console.log("GET PHOTO, useApplicationData:", response);
+        dispatch({type: ACTIONS.SET_PHOTO_DATA, payload: response});
+      })
+      .catch(error => {
+        console.error('Error fetching photo data:', error); // Handle errors
+      });
+  }, []);
+
+  //useEffect and axios to get topics
+  useEffect(() => {
+    // make the get request to the backend. Load topics data.
+    axios.get('/api/topics/')
+      .then((response) => {
+        console.log("GET TOPICS, useApplicationData:", response);
+        dispatch({type: ACTIONS.SET_TOPIC_DATA, payload: response});
+      })
+      .catch(error => {
+        console.error('Error fetching topic data:', error); // Handle errors
+      });
+  }, []);
 
   const selectPhoto = (photo) => {
     dispatch({ type: ACTIONS.SELECT_PHOTO, payload: { photo } });
   }
   
+  //This function will retrieve photo/s as per topic.
+  const getPhotosByTopic = (id) => {
+    axios(`/api/topics/photos/${id}`)
+      .then((response) => {
+        dispatch({type: ACTIONS.GET_PHOTOS_BY_TOPICS, payload: response});
+      })
+      .catch(error => {
+        console.error('Error fetching photos by topic data:', error);
+      });
+  };
   const openModalWithPhoto = (photo) => {
     dispatch({ type: ACTIONS.SELECT_PHOTO, payload: { photo } });
     dispatch({ type: ACTIONS.DISPLAY_PHOTO_DETAILS });
@@ -87,6 +142,7 @@ export default function useApplicationData() {
     ...state,
     openModalWithPhoto,
     selectPhoto,
+    getPhotosByTopic,
     openModalWithPhoto,
     toggleModal,
     closeModal,
