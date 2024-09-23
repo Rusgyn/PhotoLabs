@@ -1,8 +1,6 @@
 import { React, useEffect } from 'react';
 
 import HomeRoute from 'routes/HomeRoute';
-import photos from 'mocks/photos';
-import topics from 'mocks/topics';
 import PhotoDetailsModal from 'routes/PhotoDetailsModal';
 import useApplicationData from 'hooks/useApplicationData';
 import './App.scss';
@@ -11,6 +9,8 @@ import './App.scss';
 const App = () => {
 
   const {
+    photos,
+    topics,
     favorites,
     setFavorites,
     inFavorites,
@@ -19,7 +19,9 @@ const App = () => {
     setIsModalOpen,
     selectedPhoto,
     setSelectedPhoto,
-    openModalWithPhoto, //
+    selectPhoto,
+    getPhotosByTopic,
+    openModalWithPhoto,
     toggleModal,
     closeModal,
     toggleAddToFavorites,

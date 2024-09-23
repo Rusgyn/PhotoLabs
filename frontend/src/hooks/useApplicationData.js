@@ -114,7 +114,7 @@ export default function useApplicationData() {
   const getPhotosByTopic = (id) => {
     axios(`/api/topics/photos/${id}`)
       .then((response) => {
-        dispatch({type: ACTIONS.GET_PHOTOS_BY_TOPICS, payload: response});
+        dispatch({type: ACTIONS.GET_PHOTOS_BY_TOPICS, payload: response.data});
       })
       .catch(error => {
         console.error('Error fetching photos by topic data:', error);
