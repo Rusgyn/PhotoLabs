@@ -1,5 +1,5 @@
-import photos from "mocks/photos";
 import React, { useEffect, useReducer } from "react";
+import axios from "axios";
 
 export const ACTIONS = {
   FAV_PHOTO_ADDED: 'FAV_PHOTO_ADDED',
@@ -140,7 +140,6 @@ export default function useApplicationData() {
 
   return {
     ...state,
-    openModalWithPhoto,
     selectPhoto,
     getPhotosByTopic,
     openModalWithPhoto,
