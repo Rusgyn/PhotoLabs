@@ -44,20 +44,14 @@ const PhotoDetailsModal = (props) => {
 
       {/* Displays the selected photo */}
       <div className='photo-details-modal__images'>
-        {/* Selected Photo */}
-        <div className='photo-details-modal__top-bar'>
-
-          <div style={{marginRight: "550px"}} > 
-            <PhotoFavButton
-              onClick={handleAddToFavoriteToggle}
-              inFavorites = {inFavorites}
-            />
-          </div>
-
-          <img className='photo-details-modal__image'
-            src={full} alt="Full view of the selected photo">
-          </img>
-        </div>
+        {/* Selected Photo */}      
+        <PhotoFavButton
+          onClick={handleAddToFavoriteToggle}
+          inFavorites = {inFavorites}
+        />
+        <img className='photo-details-modal__image'
+          src={full} alt="Full view of the selected photo">
+        </img>
 
         {/* Photographer - Profile photo */}
         <div className='photo-details-modal__header'>
