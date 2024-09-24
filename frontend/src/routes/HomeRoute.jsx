@@ -16,7 +16,8 @@ const HomeRoute = (props) => {
     getPhotosByTopic,
     openModalWithPhoto,
     toggleModal,
-    toggleAddToFavorites
+    toggleAddToFavorites,
+    goToHomePage
   } = props;
 
   return (
@@ -25,6 +26,7 @@ const HomeRoute = (props) => {
         topics={topics}
         favorites={favorites}
         getPhotosByTopic={getPhotosByTopic}
+        goToHomePage={goToHomePage}
       />
       <PhotoList
         photos={photos}

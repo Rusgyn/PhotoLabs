@@ -46,7 +46,7 @@ const actionHandlers = {
   [ACTIONS.CLOSE_PHOTO_DETAILS]: (state) => ({
     ...state,
     isModalOpen: false,
-  }),
+  })
 };
 
 //This function looks up the appropriate handler in the actionHandlers object.
@@ -113,6 +113,10 @@ export default function useApplicationData() {
       });
   };
 
+  const goToHomePage =() => {
+    window.location.href = 'http://localhost:3000';
+  };
+
   const openModalWithPhoto = (photo) => {
     dispatch({ type: ACTIONS.SELECT_PHOTO, payload: { photo } });
     dispatch({ type: ACTIONS.DISPLAY_PHOTO_DETAILS });
@@ -141,6 +145,7 @@ export default function useApplicationData() {
     openModalWithPhoto,
     toggleModal,
     closeModal,
-    toggleAddToFavorites
+    toggleAddToFavorites,
+    goToHomePage
   };
 }

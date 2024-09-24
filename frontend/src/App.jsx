@@ -25,6 +25,7 @@ const App = () => {
     toggleModal,
     closeModal,
     toggleAddToFavorites,
+    goToHomePage,
     ...state
   } = useApplicationData();
 
@@ -49,6 +50,7 @@ const App = () => {
         selectedPhoto={selectedPhoto}
         toggleAddToFavorites={toggleAddToFavorites}
         getPhotosByTopic={getPhotosByTopic}
+        goToHomePage={goToHomePage}
       />
       { isModalOpen && 
         <PhotoDetailsModal 
