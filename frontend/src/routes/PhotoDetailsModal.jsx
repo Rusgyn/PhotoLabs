@@ -77,7 +77,7 @@ const PhotoDetailsModal = (props) => {
         <PhotoList
           photos={similarPhotosArray}
           favorites={props.favorites}
-          setFavorites={props.setFavorites}
+          // setFavorites={props.setFavorites}
           openModalWithPhoto={openModalWithPhoto}
           selectedPhoto={props.selectedPhoto}
           toggleAddToFavorites={toggleAddToFavorites}

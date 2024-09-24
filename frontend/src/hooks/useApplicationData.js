@@ -122,9 +122,9 @@ export default function useApplicationData() {
     dispatch({ type: ACTIONS.DISPLAY_PHOTO_DETAILS });
   };
 
-  const toggleModal = () => {
-    dispatch({ type: ACTIONS.DISPLAY_PHOTO_DETAILS });
-  };
+  // const toggleModal = () => {
+  //   dispatch({ type: ACTIONS.DISPLAY_PHOTO_DETAILS });
+  // };
 
   const closeModal = () => {
     dispatch({ type: ACTIONS.CLOSE_PHOTO_DETAILS }); 
@@ -143,7 +143,7 @@ export default function useApplicationData() {
     selectPhoto,
     getPhotosByTopic,
     openModalWithPhoto,
-    toggleModal,
+    // toggleModal,
     closeModal,
     toggleAddToFavorites,
     goToHomePage

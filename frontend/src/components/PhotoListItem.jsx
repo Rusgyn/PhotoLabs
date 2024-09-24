@@ -6,7 +6,16 @@ import "../styles/PhotoListItem.scss";
 const PhotoListItem = (props) => {
  
   // Destructured the received parameters (props)
-  const { favorites = [], openModalWithPhoto, setFavorites, toggleModal, selectedPhoto, toggleAddToFavorites, inModal } = props;
+  const {
+    favorites = [],
+    openModalWithPhoto,
+    // setFavorites, 
+    //toggleModal, 
+    selectedPhoto, 
+    toggleAddToFavorites,
+    inModal
+  } = props;
+
   const {
     id,
     location: {city, country},

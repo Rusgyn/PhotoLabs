@@ -14,9 +14,9 @@ const PhotoList = (props) => {
         key={photo.id}
         photoValue={photo}
         favorites={favorites}
-        setFavorites={setFavorites}
+        // setFavorites={setFavorites}
         openModalWithPhoto={openModalWithPhoto}
-        toggleModal={toggleModal}
+        // toggleModal={toggleModal}
         selectedPhoto={selectedPhoto}
         toggleAddToFavorites={toggleAddToFavorites}
         inModal={inModal}

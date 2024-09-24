@@ -10,12 +10,12 @@ const HomeRoute = (props) => {
   const {
     photos,
     topics,
-    selectedPhoto,
+    // selectedPhoto,
     favorites,
-    setFavorites,
+    // setFavorites,
     getPhotosByTopic,
     openModalWithPhoto,
-    toggleModal,
+    // toggleModal,
     toggleAddToFavorites,
     goToHomePage
   } = props;
@@ -31,10 +31,10 @@ const HomeRoute = (props) => {
       <PhotoList
         photos={photos}
         favorites={favorites}
-        setFavorites={setFavorites}
+        // setFavorites={setFavorites}
         openModalWithPhoto={openModalWithPhoto}
-        toggleModal={toggleModal}
-        selectedPhoto={selectedPhoto}
+        // toggleModal={toggleModal}
+        // selectedPhoto={selectedPhoto}
         toggleAddToFavorites={toggleAddToFavorites}
       />
     </div>
