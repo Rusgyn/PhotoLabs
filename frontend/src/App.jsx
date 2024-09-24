@@ -18,24 +18,14 @@ const App = () => {
     isModalOpen,
     setIsModalOpen,
     selectedPhoto,
-    // setSelectedPhoto,
     selectPhoto,
     getPhotosByTopic,
     openModalWithPhoto,
-    // toggleModal,
     closeModal,
     toggleAddToFavorites,
     goToHomePage,
     ...state
   } = useApplicationData();
-
-  // useEffect(() => {
-  //   console.log('selectedPhoto state updated:', selectedPhoto);
-  // }, [selectedPhoto]);
-  
-  // useEffect(() => {
-  //   console.log('isModalOpen state updated:', isModalOpen);
-  // }, [isModalOpen]);
 
   return (
     
@@ -44,9 +34,7 @@ const App = () => {
         photos={photos}
         topics={topics}
         favorites={favorites}
-        // setFavorites={setFavorites}
         openModalWithPhoto={openModalWithPhoto}
-        // toggleModal={toggleModal}
         selectedPhoto={selectedPhoto}
         toggleAddToFavorites={toggleAddToFavorites}
         getPhotosByTopic={getPhotosByTopic}
@@ -56,10 +44,8 @@ const App = () => {
         <PhotoDetailsModal 
           photos={photos}
           favorites={favorites}
-          // setFavorites={setFavorites}
           selectedPhoto={selectedPhoto}
           openModalWithPhoto={openModalWithPhoto}
-          // toggleModal={toggleModal}
           closeModal={closeModal}
           toggleAddToFavorites={toggleAddToFavorites}
         />

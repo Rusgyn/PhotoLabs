@@ -28,7 +28,7 @@ const PhotoDetailsModal = (props) => {
 
   //This function will handle the favorite toggle
   const handleAddToFavoriteToggle = () => {
-    toggleAddToFavorites(id, inFavorites); // Ensure this is called as a function
+    toggleAddToFavorites(id, inFavorites); // This is to ensure this is called as a function
   };
 
   return (
@@ -77,7 +77,6 @@ const PhotoDetailsModal = (props) => {
         <PhotoList
           photos={similarPhotosArray}
           favorites={props.favorites}
-          // setFavorites={props.setFavorites}
           openModalWithPhoto={openModalWithPhoto}
           selectedPhoto={props.selectedPhoto}
           toggleAddToFavorites={toggleAddToFavorites}
