@@ -6,12 +6,12 @@ import TopicList from './TopicList';
 
 const TopNavigation = (props) => {
   
-  const { topics, favorites } = props;
+  const { topics, favorites, getPhotosByTopic } = props;
 
   return (
     <div className="top-nav-bar">
       <span className="top-nav-bar__logo">PhotoLabs</span>
-      <TopicList topics={topics}/>
+      <TopicList topics={topics} getPhotosByTopic={getPhotosByTopic}/>
       <FavBadge isFavPhotoExist={favorites.length > 0}/>
     </div>
   );

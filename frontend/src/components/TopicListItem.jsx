@@ -7,10 +7,16 @@ const TopicListItem = (props) => {
 
   // Destructured the received parameters (props)
   const { id, slug, title } =  props.topicValue;
+  const { getPhotosByTopic } = props;
+
+  //This function will handle the favorite toggle
+  const handleGetPhotosByTopic = () => {
+    getPhotosByTopic(props.topicValue.id);
+  };
 
   return (
     <div className="topic-list__item">
-      <span>
+      <span onClick={handleGetPhotosByTopic}>
         {title}
       </span>
     </div>

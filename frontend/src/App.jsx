@@ -48,6 +48,7 @@ const App = () => {
         toggleModal={toggleModal}
         selectedPhoto={selectedPhoto}
         toggleAddToFavorites={toggleAddToFavorites}
+        getPhotosByTopic={getPhotosByTopic}
       />
       { isModalOpen && 
         <PhotoDetailsModal 
@@ -61,8 +62,6 @@ const App = () => {
           toggleAddToFavorites={toggleAddToFavorites}
         />
       }
-
-<button onClick={() => toggleModal()}>Open Modal</button>
     </div>
   );
 

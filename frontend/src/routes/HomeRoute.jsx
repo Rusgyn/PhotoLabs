@@ -7,11 +7,25 @@ import '../styles/HomeRoute.scss';
 const HomeRoute = (props) => {
 
   // Destructure the received props.
-  const { topics, selectedPhoto, photos, favorites, setFavorites, openModalWithPhoto, toggleModal, toggleAddToFavorites } = props;
+  const {
+    photos,
+    topics,
+    selectedPhoto,
+    favorites,
+    setFavorites,
+    getPhotosByTopic,
+    openModalWithPhoto,
+    toggleModal,
+    toggleAddToFavorites
+  } = props;
 
   return (
     <div className="home-route">
-      <TopNavigation topics={topics} favorites={favorites}/>
+      <TopNavigation
+        topics={topics}
+        favorites={favorites}
+        getPhotosByTopic={getPhotosByTopic}
+      />
       <PhotoList
         photos={photos}
         favorites={favorites}
