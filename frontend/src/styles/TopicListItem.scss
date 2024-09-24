@@ -12,5 +12,10 @@
   &:hover {
     text-decoration: overline;
     color: #111;
+    
+  }
+
+  &:hover:active {
+    text-shadow: #222 1px 0 10px;
   }
 }

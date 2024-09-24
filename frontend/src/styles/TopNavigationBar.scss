@@ -6,7 +6,7 @@
   align-items: center;
   -webkit-box-shadow: 0 4px 6px -6px #222;
   -moz-box-shadow: 0 4px 6px -6px #222;
-  box-shadow: 0 4px 6px -6px #222;
+  box-shadow: 0 0px 8px -5px #222; //0 4px 6px -6px #222;
   height: 72px;
 }
 
@@ -17,4 +17,8 @@
   color: #111;
   text-underline-position: auto;
   margin-left: 24px;
+}
+
+.top-nav-bar__logo:hover {
+  text-shadow: #FC0 1px 0 10px;
 }
