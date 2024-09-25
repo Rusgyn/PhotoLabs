@@ -79,7 +79,6 @@ export default function useApplicationData() {
   useEffect(() => {
     axios.get('/api/photos/')
       .then((response) => {
-        console.log("GET PHOTO, useApplicationData:", response.data);
         dispatch({ type: ACTIONS.SET_PHOTO_DATA, payload: response.data });
       })
       .catch(error => {
@@ -91,7 +90,6 @@ export default function useApplicationData() {
   useEffect(() => {
     axios.get('/api/topics/')
       .then((response) => {
-        console.log("GET TOPICS, useApplicationData:", response.data);
         dispatch({ type: ACTIONS.SET_TOPIC_DATA, payload: response.data });
       })
       .catch(error => {
