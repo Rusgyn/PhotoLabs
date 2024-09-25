@@ -46,6 +46,14 @@ The PhotoLabs project for the Web Development React course programming.
     - socket.io,
     - ws
 
+## devDependencies
+* Frontend
+  - sass
+
+* Backend
+  - supertest
+  - jest
+
 ## Setup
 
 > There are two different servers running during development
