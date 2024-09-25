@@ -5,3 +5,20 @@
   align-items: center;
   margin-right: 24px;
 }
+
+.top-nav-bar__topic-list.dark-mode {
+  color: #ddc019;
+
+  .topic-list__item {
+    color: #b49d1e;
+
+    &:hover {
+      text-shadow: rgba(255, 247, 0, 0.497) 1px 0 15px;
+
+      &:active {
+        text-shadow: white 5px 0 15px;
+      }
+    }
+  };
+  
+} 

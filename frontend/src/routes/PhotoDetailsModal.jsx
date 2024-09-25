@@ -7,7 +7,7 @@ import PhotoFavButton from 'components/PhotoFavButton';
 
 const PhotoDetailsModal = (props) => {
 
-  const { photos, openModalWithPhoto, selectedPhoto, favorites, setFavorites, closeModal, toggleAddToFavorites } = props;
+  const { photos, openModalWithPhoto, selectedPhoto, favorites, setFavorites, closeModal, toggleAddToFavorites, isDarkMode } = props;
 
   // Ensure selectedPhoto and location exist before rendering
   if (!selectedPhoto || !selectedPhoto.location) {
@@ -32,7 +32,8 @@ const PhotoDetailsModal = (props) => {
   };
 
   return (
-    <div className="photo-details-modal">
+    <div className={`photo-details-modal ${isDarkMode ? 'dark-mode' : ''}`}>  
+    {/* className="photo-details-modal" */}
 
       {/* Modal button */}
       <button
@@ -61,7 +62,7 @@ const PhotoDetailsModal = (props) => {
               src={profile} alt={`Photographer ${name} image`} 
             />
             {/* Photographer - Name and location */}
-            <div className='photo-details-modal__photographer-info'>
+            <div className={`photo-details-modal__photographer-info ${isDarkMode ? 'dark-mode' : ''}`} >
               <span> {name} </span>
               <div className='photo-details-modal__photographer-location'>
                 <span> {city}, {country} </span>
@@ -82,6 +83,7 @@ const PhotoDetailsModal = (props) => {
           toggleAddToFavorites={toggleAddToFavorites}
           handleAddToFavoriteToggle={handleAddToFavoriteToggle}
           inModal={true}
+          isDarkMode={isDarkMode}
         />
       </div>
     </div>

@@ -6,7 +6,7 @@ import "../styles/PhotoList.scss";
 const PhotoList = (props) => {
 
   // Destructured the received parameters (props)
-  const {photos, favorites, setFavorites, openModalWithPhoto, selectedPhoto, toggleAddToFavorites, inModal, toggleModal } = props;
+  const {photos, favorites, setFavorites, openModalWithPhoto, selectedPhoto, toggleAddToFavorites, inModal, toggleModal, isDarkMode } = props;
  
   const mappedPhoto = photos.map((photo) => {
       return (
@@ -24,7 +24,7 @@ const PhotoList = (props) => {
   })
 
   return (
-    <ul className="photo-list">
+    <ul className={`photo-list ${isDarkMode ? 'dark-mode' : ''}`} >
       { mappedPhoto }
     </ul>
   );

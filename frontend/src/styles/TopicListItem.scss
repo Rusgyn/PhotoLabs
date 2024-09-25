@@ -1,9 +1,6 @@
 .topic-list__item {
   line-height: 24px;
   margin-left: 24px;
-}
-
-.topic-list__item span {
   font-size: 18px;
   text-decoration: none;
   font-weight: 500;
@@ -13,10 +10,15 @@
   &:hover {
     text-decoration: overline;
     color: #111;
-    
+    text-shadow: #222 1px 0 15px;
   }
 
   &:hover:active {
     text-shadow: #3fef00 1px 0 10px;
   }
+}
+
+.topic-list__item.dark-mode {
+  cursor: pointer;
+  text-decoration: overline;
 }

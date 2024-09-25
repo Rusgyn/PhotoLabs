@@ -12,9 +12,9 @@
 }
 
 .photo-details-modal__close-button {
-  background-color: white;
+  background-color: inherit;
   border: none;
-  color: white;
+  //color: white;
   text-align: center;
   text-decoration: none;
   display: inline-block;
@@ -75,4 +75,13 @@
   font-weight: 700;
   font-size: 12px;
   margin-left: 8px;
+}
+
+.photo-details-modal.dark-mode {
+  background-color: #222;
+  color: #ffffff;
+}
+
+.photo-details-modal__photographer-info.dark-mode {
+  color: white;
 }

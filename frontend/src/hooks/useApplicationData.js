@@ -9,7 +9,8 @@ export const ACTIONS = {
   GET_PHOTOS_BY_TOPICS: 'GET_PHOTOS_BY_TOPICS',
   SELECT_PHOTO: 'SELECT_PHOTO',
   DISPLAY_PHOTO_DETAILS: 'DISPLAY_PHOTO_DETAILS',
-  CLOSE_PHOTO_DETAILS: 'CLOSE_PHOTO_DETAILS'
+  CLOSE_PHOTO_DETAILS: 'CLOSE_PHOTO_DETAILS',
+  DARK_MODE_SCREEN: 'DARK_MODE_SCREEN'
 };
 
 //actionHandlers object will define how to handle each action type
@@ -46,7 +47,12 @@ const actionHandlers = {
   [ACTIONS.CLOSE_PHOTO_DETAILS]: (state) => ({
     ...state,
     isModalOpen: false,
+  }),
+  [ACTIONS.DARK_MODE_SCREEN]: (state) => ({
+    ...state,
+    isDarkMode: !state.isDarkMode,
   })
+
 };
 
 //This function looks up the appropriate handler in the actionHandlers object.
@@ -71,6 +77,7 @@ export default function useApplicationData() {
     },
     photos: [],
     topics: [],
+    isDarkMode: false,
   };
 
   const [state, dispatch] = useReducer(reducer, initialState);
@@ -132,6 +139,10 @@ export default function useApplicationData() {
     }
   };
 
+  const toggleDarkMode = () => {
+    dispatch({ type: ACTIONS.DARK_MODE_SCREEN });
+  };
+
   return {
     ...state,
     selectPhoto,
@@ -139,6 +150,7 @@ export default function useApplicationData() {
     openModalWithPhoto,
     closeModal,
     toggleAddToFavorites,
-    goToHomePage
+    goToHomePage,
+    toggleDarkMode
   };
 }

@@ -17,7 +17,9 @@ const HomeRoute = (props) => {
     openModalWithPhoto,
     // toggleModal,
     toggleAddToFavorites,
-    goToHomePage
+    goToHomePage,
+    isDarkMode,
+    toggleDarkMode
   } = props;
 
   return (
@@ -27,6 +29,8 @@ const HomeRoute = (props) => {
         favorites={favorites}
         getPhotosByTopic={getPhotosByTopic}
         goToHomePage={goToHomePage}
+        isDarkMode={isDarkMode}
+        toggleDarkMode={toggleDarkMode}
       />
       <PhotoList
         photos={photos}
@@ -35,6 +39,7 @@ const HomeRoute = (props) => {
         openModalWithPhoto={openModalWithPhoto}
         // toggleModal={toggleModal}
         // selectedPhoto={selectedPhoto}
+        isDarkMode={isDarkMode}
         toggleAddToFavorites={toggleAddToFavorites}
       />
     </div>

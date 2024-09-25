@@ -13,7 +13,8 @@ const PhotoListItem = (props) => {
     //toggleModal, 
     selectedPhoto, 
     toggleAddToFavorites,
-    inModal
+    inModal,
+    isDarkMode
   } = props;
 
   const {
@@ -38,7 +39,7 @@ const PhotoListItem = (props) => {
   };
  
   return (    
-    <div className="photo-list__item">
+    <div className={`photo-list__item ${isDarkMode ? 'dark-mode' : ''}`}>
 
       {/* Favorite icon */}
       <PhotoFavButton

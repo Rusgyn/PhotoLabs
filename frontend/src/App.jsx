@@ -24,12 +24,15 @@ const App = () => {
     closeModal,
     toggleAddToFavorites,
     goToHomePage,
+    isDarkMode,
+    toggleDarkMode,
     ...state
   } = useApplicationData();
 
   return (
     
-    <div className="App">
+    <div className={`App ${isDarkMode ? 'dark-mode' : ''}`}>
+      {/* className="App" */}
       <HomeRoute
         photos={photos}
         topics={topics}
@@ -39,6 +42,8 @@ const App = () => {
         toggleAddToFavorites={toggleAddToFavorites}
         getPhotosByTopic={getPhotosByTopic}
         goToHomePage={goToHomePage}
+        isDarkMode={isDarkMode}
+        toggleDarkMode={toggleDarkMode}
       />
       { isModalOpen && 
         <PhotoDetailsModal 
@@ -48,6 +53,7 @@ const App = () => {
           openModalWithPhoto={openModalWithPhoto}
           closeModal={closeModal}
           toggleAddToFavorites={toggleAddToFavorites}
+          isDarkMode={isDarkMode}
         />
       }
     </div>

@@ -7,7 +7,7 @@ const TopicListItem = (props) => {
 
   // Destructured the received parameters (props)
   const { id, slug, title } =  props.topicValue;
-  const { getPhotosByTopic } = props;
+  const { getPhotosByTopic, isDarkMode } = props;
 
   //This function will handle the favorite toggle
   const handleGetPhotosByTopic = () => {
@@ -15,10 +15,11 @@ const TopicListItem = (props) => {
   };
 
   return (
-    <div className="topic-list__item">
-      <span onClick={handleGetPhotosByTopic}>
-        {title}
-      </span>
+    <div 
+      className={`topic-list__item ${isDarkMode ? 'dark-mode' : ''}`}
+      onClick={handleGetPhotosByTopic}
+    >
+      {title}   
     </div>
   );
 };
