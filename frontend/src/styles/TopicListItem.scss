@@ -8,6 +8,7 @@
   text-decoration: none;
   font-weight: 500;
   color: #000000; //#2b2b2b
+  cursor: pointer;
 
   &:hover {
     text-decoration: overline;
@@ -16,6 +17,6 @@
   }
 
   &:hover:active {
-    text-shadow: #222 1px 0 10px;
+    text-shadow: #3fef00 1px 0 10px;
   }
 }
