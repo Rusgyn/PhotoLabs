@@ -117,7 +117,20 @@ export default function useApplicationData() {
   };
 
   const goToHomePage =() => {
-    window.location.href = 'http://localhost:3000';
+    axios.get('/api/photos/')
+    .then((response) => {
+      dispatch({ type: ACTIONS.SET_PHOTO_DATA, payload: response.data });
+    })
+    .catch(error => {
+      console.error('Error fetching photo data:', error);
+    });
+    axios.get('/api/topics/')
+    .then((response) => {
+      dispatch({ type: ACTIONS.SET_TOPIC_DATA, payload: response.data });
+    })
+    .catch(error => {
+      console.error('Error fetching topic data:', error);
+    });
   };
 
   const openModalWithPhoto = (photo) => {
