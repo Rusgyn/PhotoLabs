@@ -6,9 +6,15 @@ import TopicList from './TopicList';
 
 const TopNavigation = (props) => {
   
-  const { topics, favorites, getPhotosByTopic, goToHomePage, toggleDarkMode, isDarkMode } = props;
+  const {
+    topics,
+    favorites,
+    getPhotosByTopic,
+    goToHomePage,
+    isDarkMode,
+    toggleDarkMode
+  } = props;
   
-
   return (
     <div className={`top-nav-bar ${isDarkMode ? 'dark-mode' : ''}`} >
       <span 
@@ -16,16 +22,20 @@ const TopNavigation = (props) => {
       >
         PhotoLabs
       </span>
-
-
-      <TopicList topics={topics} getPhotosByTopic={getPhotosByTopic} isDarkMode={isDarkMode} />
-      
-
+      <TopicList
+        topics={topics}
+        getPhotosByTopic={getPhotosByTopic}
+        isDarkMode={isDarkMode}
+      />
       <div className='top-nav-bar__notification-darkMode'>
         <FavBadge isFavPhotoExist={favorites.length > 0}/>
-        <button className="top-nav-bar__dark-mode-icon" onClick={toggleDarkMode}> { `${isDarkMode ? '🌚 Dark' : '🌞 Light'}`} </button>
+        <button
+          className="top-nav-bar__dark-mode-icon" 
+          onClick={toggleDarkMode}
+        >
+          { `${isDarkMode ? '🌚 Dark' : '🌞 Light'}`}
+        </button>
       </div>
-
     </div>
   );
 

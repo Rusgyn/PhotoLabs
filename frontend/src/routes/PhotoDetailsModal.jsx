@@ -7,7 +7,16 @@ import PhotoFavButton from 'components/PhotoFavButton';
 
 const PhotoDetailsModal = (props) => {
 
-  const { photos, openModalWithPhoto, selectedPhoto, favorites, setFavorites, closeModal, toggleAddToFavorites, isDarkMode } = props;
+  const {
+    // photos,
+    openModalWithPhoto,
+    selectedPhoto,
+    favorites,
+    // setFavorites,
+    closeModal,
+    toggleAddToFavorites,
+    isDarkMode
+  } = props;
 
   // Ensure selectedPhoto and location exist before rendering
   if (!selectedPhoto || !selectedPhoto.location) {
@@ -79,7 +88,7 @@ const PhotoDetailsModal = (props) => {
           photos={similarPhotosArray}
           favorites={props.favorites}
           openModalWithPhoto={openModalWithPhoto}
-          selectedPhoto={props.selectedPhoto}
+          // selectedPhoto={props.selectedPhoto}
           toggleAddToFavorites={toggleAddToFavorites}
           handleAddToFavoriteToggle={handleAddToFavoriteToggle}
           inModal={true}

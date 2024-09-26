@@ -11,7 +11,7 @@ const PhotoListItem = (props) => {
     openModalWithPhoto,
     // setFavorites, 
     //toggleModal, 
-    selectedPhoto, 
+    // selectedPhoto, 
     toggleAddToFavorites,
     inModal,
     isDarkMode

@@ -1,5 +1,4 @@
 import { React, useEffect } from 'react';
-
 import HomeRoute from 'routes/HomeRoute';
 import PhotoDetailsModal from 'routes/PhotoDetailsModal';
 import useApplicationData from 'hooks/useApplicationData';
@@ -7,16 +6,13 @@ import './App.scss';
 
 // Note: Rendering a single component to build components in isolation
 const App = () => {
-
   const {
     photos,
     topics,
     favorites,
-    setFavorites,
     inFavorites,
     setInFavorites,
     isModalOpen,
-    setIsModalOpen,
     selectedPhoto,
     selectPhoto,
     getPhotosByTopic,
@@ -30,7 +26,6 @@ const App = () => {
   } = useApplicationData();
 
   return (
-    
     <div className={`App ${isDarkMode ? 'dark-mode' : ''}`}>
       {/* className="App" */}
       <HomeRoute
@@ -58,7 +53,6 @@ const App = () => {
       }
     </div>
   );
-
 };
 
 export default App;
