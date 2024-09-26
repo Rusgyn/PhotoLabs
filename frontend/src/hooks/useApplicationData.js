@@ -52,18 +52,16 @@ const actionHandlers = {
     ...state,
     isDarkMode: !state.isDarkMode,
   })
-
 };
 
 //This function looks up the appropriate handler in the actionHandlers object.
 function reducer(state, action) {
   const handler = actionHandlers[action.type];
   return handler ? handler(state, action) : state;
-}
+};
 
 //This function, hook, will dispatch actions based on UI.
 export default function useApplicationData() {
-
   const initialState = {
     favorites: [],
     inModal: false,
@@ -153,4 +151,4 @@ export default function useApplicationData() {
     goToHomePage,
     toggleDarkMode
   };
-}
+};

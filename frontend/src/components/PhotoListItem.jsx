@@ -1,17 +1,12 @@
-import React, { Fragment } from "react";
-
+import React from "react";
 import PhotoFavButton from "./PhotoFavButton";
 import "../styles/PhotoListItem.scss";
 
 const PhotoListItem = (props) => {
- 
   // Destructured the received parameters (props)
   const {
     favorites = [],
     openModalWithPhoto,
-    // setFavorites, 
-    //toggleModal, 
-    // selectedPhoto, 
     toggleAddToFavorites,
     inModal,
     isDarkMode
@@ -23,6 +18,7 @@ const PhotoListItem = (props) => {
     urls: {full, regular},
     user: {username, name, profile}
   } = props.photoValue;
+
   const inFavorites = favorites.includes(id);
   
   const handleInModal = () => {
@@ -40,20 +36,17 @@ const PhotoListItem = (props) => {
  
   return (    
     <div className={`photo-list__item ${isDarkMode ? 'dark-mode' : ''}`}>
-
       {/* Favorite icon */}
       <PhotoFavButton
         onClick={handleAddToFavoriteToggle}
         inFavorites={inFavorites}
       />
-
       {/* Photo Details */}
       <img 
         className="photo-list__image"
         src={regular} alt={`photo by ${name}`}
         onClick={handleInModal}
       />
-      
       {/* User Details */}
       <div className="photo-list__user-details">
         {/* User - profile photo */}
@@ -66,10 +59,8 @@ const PhotoListItem = (props) => {
           </div>
         </div>
       </div>
-
     </div>
   );
-
 };
 
 export default PhotoListItem;

@@ -1,11 +1,9 @@
 import React from 'react';
-
 import '../styles/TopNavigationBar.scss'
 import FavBadge from './FavBadge';
 import TopicList from './TopicList';
 
 const TopNavigation = (props) => {
-  
   const {
     topics,
     favorites,
@@ -38,9 +36,6 @@ const TopNavigation = (props) => {
       </div>
     </div>
   );
-
 };
-// className={`top-nav-bar__dark-mode-icon ${isDarkMode ? '🌚' : '🌞'}`} 
-// `"ScreenMode"} 
 
 export default TopNavigation;

@@ -1,6 +1,5 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import FavIcon from './FavIcon';
-
 import '../styles/FavBadge.scss';
 
 const FavBadge = ({ isFavPhotoExist }) => {
@@ -8,7 +7,6 @@ const FavBadge = ({ isFavPhotoExist }) => {
     <div className='fav-badge'>
       <FavIcon displayAlert={!!isFavPhotoExist}/>
     </div>
-
   ) 
 };
 
